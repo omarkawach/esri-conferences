@@ -8,7 +8,7 @@ importers:
 
   .: {}
 
-  app:
+  apps/blog:
     dependencies:
       '@arcgis/charts-components':
         specifier: ^5.0.0
@@ -21,7 +21,35 @@ importers:
         version: 5.0.9(@arcgis/core@5.0.9)(@esri/calcite-components@5.0.2)
       '@devtech/utils':
         specifier: workspace:*
-        version: link:../packages/utils
+        version: link:../../packages/utils
+      '@esri/calcite-components':
+        specifier: ^5.0.0
+        version: 5.0.2
+      astro:
+        specifier: 6.0.0-alpha.5
+        version: 6.0.0-alpha.5(@types/node@24.10.15)(rollup@4.59.0)(typescript@5.9.3)
+    devDependencies:
+      '@types/node':
+        specifier: ~24.10.1
+        version: 24.10.15
+      typescript:
+        specifier: ~5.9.3
+        version: 5.9.3
+
+  apps/map-app:
+    dependencies:
+      '@arcgis/charts-components':
+        specifier: ^5.0.0
+        version: 5.0.9(@arcgis/core@5.0.9)(@esri/calcite-components@5.0.2)
+      '@arcgis/core':
+        specifier: ^5.0.0
+        version: 5.0.9
+      '@arcgis/map-components':
+        specifier: ^5.0.0
+        version: 5.0.9(@arcgis/core@5.0.9)(@esri/calcite-components@5.0.2)
+      '@devtech/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@esri/calcite-components':
         specifier: ^5.0.0
         version: 5.0.2
