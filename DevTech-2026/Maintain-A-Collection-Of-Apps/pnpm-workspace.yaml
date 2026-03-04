@@ -1,0 +1,21 @@
+packages:
+  - app
+  - packages/*
+
+autoInstallPeers: false
+
+allowBuilds:
+  "@vaadin/vaadin-usage-statistics": false
+  core-js: false
+  esbuild: true # doc: https://esbuild.github.io/getting-started/#additional-npm-flags
+  sharp: false # astro image compression
+
+blockExoticSubdeps: true
+strictDepBuilds: true
+
+engineStrict: true
+
+minimumReleaseAge: 1440 # 1 day
+minimumReleaseAgeExclude:
+  - "@arcgis/*"
+  - "@esri/*"
