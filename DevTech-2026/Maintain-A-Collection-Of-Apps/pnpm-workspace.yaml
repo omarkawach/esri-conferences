@@ -1,6 +1,6 @@
 packages:
-  - app
-  - packages/*
+  - apps/**/*
+  - packages/**/*
 
 autoInstallPeers: false
 
