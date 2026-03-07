@@ -1,18 +1,20 @@
 import { LitElement, css, html } from 'lit';
 import '@esri/calcite-components/components/calcite-action';
 import '@esri/calcite-components/components/calcite-button';
-import '@esri/calcite-components/components/calcite-dialog';
+import '@esri/calcite-components/components/calcite-input-text';
+import '@esri/calcite-components/components/calcite-popover';
 import '@esri/calcite-components/main.css';
 
 export class ShareDialog extends LitElement {
+  // configurable labels/messages so host apps can localize text without changing code.
   static properties = {
     buttonLabel: { type: String, attribute: 'button-label' },
     dialogTitle: { type: String, attribute: 'dialog-title' },
     copySuccessMessage: { type: String, attribute: 'copy-success-message' },
+    shareUrlLabel: { type: String, attribute: 'share-url-label' },
     copyButtonLabel: { type: String, attribute: 'copy-button-label' },
     shareButtonLabel: { type: String, attribute: 'share-button-label' },
     closeButtonLabel: { type: String, attribute: 'close-button-label' },
-    dialogOpen: { state: true },
     shareUrl: { state: true },
     copied: { state: true },
     error: { state: true }
@@ -25,16 +27,6 @@ export class ShareDialog extends LitElement {
       right: 1rem;
       z-index: 30;
       font-family: system-ui, sans-serif;
-    }
-
-    input {
-      width: 100%;
-      box-sizing: border-box;
-      font: inherit;
-      padding: 0.55rem 0.65rem;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      margin-bottom: 0.75rem;
     }
 
     .actions {
@@ -56,15 +48,15 @@ export class ShareDialog extends LitElement {
       margin: 0.25rem 0 0.75rem;
       color: #334155;
     }
+
   `;
 
-  buttonLabel = 'Share map';
+  buttonLabel = 'Share';
   dialogTitle = 'Share this map';
-  copySuccessMessage = 'Map URL copied.';
+  copySuccessMessage = 'URL copied.';
+  shareUrlLabel = 'Share URL';
   copyButtonLabel = 'Copy URL';
-  shareButtonLabel = 'Share URL';
   closeButtonLabel = 'Close dialog';
-  dialogOpen = false;
   shareUrl = '';
   copied = false;
   error = '';
@@ -74,25 +66,40 @@ export class ShareDialog extends LitElement {
     this.shareUrl = window.location.href;
   }
 
-  openDialog(): void {
+  private get supportsNativeShare(): boolean {
+    // Use native share only on mobile where platform sheets are expected UX.
+    const isMobileDevice =
+      /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      (navigator.maxTouchPoints > 1 && window.matchMedia('(pointer: coarse)').matches);
+
+    if (!isMobileDevice) {
+      return false;
+    }
+
+    const navigatorWithShare = navigator as Navigator & {
+      share?: (data?: ShareData) => Promise<void>;
+    };
+
+    return typeof navigatorWithShare.share === 'function';
+  }
+
+  async handleShareAction(): Promise<void> {
+    // Primary button behavior:
+    // - Mobile + Web Share API: launch native sheet immediately.
+    // - Desktop / unsupported: let popover trigger naturally on click.
     this.shareUrl = window.location.href;
-    this.copied = false;
-    this.error = '';
-    this.dialogOpen = true;
-  }
 
-  closeDialog(): void {
-    this.dialogOpen = false;
-  }
-
-  handleCalciteClose(): void {
-    this.dialogOpen = false;
+    if (this.supportsNativeShare) {
+      await this.shareLink();
+    }
   }
 
   async shareLink(): Promise<void> {
+    // Clear prior status before each share attempt to avoid stale success/error messages.
     this.error = '';
+    this.copied = false;
 
-    if (navigator.share) {
+    if (this.supportsNativeShare) {
       try {
         await navigator.share({
           title: document.title,
@@ -100,12 +107,14 @@ export class ShareDialog extends LitElement {
         });
         return;
       } catch (error) {
-        if (!(error instanceof DOMException && error.name === 'AbortError')) {
-          this.error = 'Unable to open native share dialog.';
+        // Native share cancelled do not copy to clipboard.
+        if (error instanceof DOMException && error.name === 'AbortError') {
+          return;
         }
       }
     }
 
+    // If native share is unavailable or failed, copy URL to clipboard.
     await this.copyLink();
   }
 
@@ -128,6 +137,7 @@ export class ShareDialog extends LitElement {
   }
 
   openShareUrl(url: string): void {
+    // Open social share endpoints safely in a new tab.
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 
@@ -139,54 +149,81 @@ export class ShareDialog extends LitElement {
     this.openShareUrl(`https://bsky.app/intent/compose?text=${this.encodedText}`);
   }
 
-  async shareToInstagram(): Promise<void> {
-    await this.copyLink();
-    this.openShareUrl('https://www.instagram.com/');
+  shareToLinkedIn(): void {
+    this.openShareUrl(`https://www.linkedin.com/sharing/share-offsite/?url=${this.encodedUrl}`);
+  }
+
+  private get shareActionElement(): HTMLElement | null {
+    return this.renderRoot.querySelector('#share-action');
+  }
+
+  private syncPopoverReferenceElement(): void {
+    const popover = this.renderRoot.querySelector('calcite-popover') as
+      | (HTMLElement & { referenceElement?: Element | null })
+      | null;
+
+    if (!popover) {
+      return;
+    }
+
+    popover.referenceElement = this.shareActionElement;
+  }
+
+  protected firstUpdated(): void {
+    this.syncPopoverReferenceElement();
+  }
+
+  protected updated(): void {
+    this.syncPopoverReferenceElement();
+  }
+
+  private closePopover(): void {
+    const popover = this.renderRoot.querySelector('calcite-popover') as
+      | (HTMLElement & { open: boolean })
+      | null;
+
+    if (popover) {
+      popover.open = false;
+    }
   }
 
   render() {
     return html`
       <calcite-action
+        id="share-action"
         icon="share"
         text=${this.buttonLabel}
         label=${this.buttonLabel}
         text-enabled
-        @click=${this.openDialog}
+        @click=${this.handleShareAction}
       ></calcite-action>
 
-      <calcite-dialog
-        heading=${this.dialogTitle}
-        width="m"
-        .open=${this.dialogOpen}
-        @calciteDialogClose=${this.handleCalciteClose}
+      <calcite-popover
+        closable
+        heading="${this.dialogTitle}"
       >
-        <input readonly .value=${this.shareUrl} @focus=${this.handleInputFocus} />
+        <p>
+          <calcite-input-text
+          scale="s"
+            read-only
+            label=${this.shareUrlLabel}
+            .value=${this.shareUrl}
+          ></calcite-input-text>
 
-        ${this.error ? html`<p class="status">${this.error}</p>` : null}
-        ${this.copied ? html`<p class="status">${this.copySuccessMessage}</p>` : null}
+          ${this.error ? html`<p class="status">${this.error}</p>` : null}
+          ${this.copied ? html`<p class="status">${this.copySuccessMessage}</p>` : null}
 
-        <div class="social-actions">
-          <calcite-button appearance="outline" @click=${this.copyLink}>${this.copyButtonLabel}</calcite-button>
-          <calcite-button appearance="outline" @click=${this.shareToFacebook}>Facebook</calcite-button>
-          <calcite-button appearance="outline" @click=${this.shareToBluesky}>Bluesky</calcite-button>
-          <calcite-button appearance="outline" @click=${this.shareToInstagram}>Instagram</calcite-button>
-        </div>
-
-        <div class="actions" slot="footer-end">
-          <calcite-button appearance="solid" @click=${this.shareLink}>${this.shareButtonLabel}</calcite-button>
-          <calcite-button appearance="outline" @click=${this.closeDialog}>${this.closeButtonLabel}</calcite-button>
-        </div>
-      </calcite-dialog>
+          <div class="social-actions">
+            <calcite-button icon-start="copy-to-clipboard" appearance="outline" @click=${this.copyLink}>${this.copyButtonLabel}</calcite-button>
+            <calcite-button appearance="outline" @click=${this.shareToFacebook}>Facebook</calcite-button>
+            <calcite-button appearance="outline" @click=${this.shareToBluesky}>Bluesky</calcite-button>
+            <calcite-button appearance="outline" @click=${this.shareToLinkedIn}>LinkedIn</calcite-button>
+          </div>
+      </p>
+      </calcite-popover>
     `;
   }
 
-  private handleInputFocus(event: FocusEvent): void {
-    const target = event.target;
-
-    if (target instanceof HTMLInputElement) {
-      target.select();
-    }
-  }
 }
 
 declare global {
