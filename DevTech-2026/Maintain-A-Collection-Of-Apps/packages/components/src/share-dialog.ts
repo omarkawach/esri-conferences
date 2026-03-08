@@ -203,11 +203,15 @@ export class ShareDialog extends LitElement {
         heading="${this.dialogTitle}"
       >
         <p>
+          <!-- Clicking the input copies the URL to clipboard for quick sharing.
+            We call the same copyLink() helper used by the Copy button so
+            the UI and status behavior remains consistent. -->
           <calcite-input-text
-          scale="s"
+            scale="s"
             read-only
             label=${this.shareUrlLabel}
             .value=${this.shareUrl}
+            @click=${this.copyLink}
           ></calcite-input-text>
 
           ${this.error ? html`<p class="status">${this.error}</p>` : null}
