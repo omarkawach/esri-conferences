@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share Dialog Demo</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #f8fafc;
+        color: #0f172a;
+      }
+
+      .panel {
+        max-width: 560px;
+        padding: 1.75rem;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 1rem;
+        box-shadow: 0 12px 40px -28px rgba(15, 23, 42, 0.45);
+        text-align: center;
+        display: grid;
+        gap: 1rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.85rem;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+        color: #475569;
+      }
+
+      share-dialog {
+        /* Override the component's default fixed positioning so it can sit in the panel. */
+        position: static;
+        justify-self: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="panel">
+      <h1>Share Dialog component</h1>
+      <p>
+        Try the <code>&lt;share-dialog&gt;</code> web component in isolation. Click the button to copy
+        or share the current page URL; on mobile the native share sheet is used when available.
+      </p>
+
+      <share-dialog
+        button-label="Share"
+        dialog-title="Share this page"
+        copy-success-message="Link copied"
+        share-url-label="Share URL"
+        copy-button-label="Copy URL"
+        close-button-label="Close dialog"
+        style="position: static;"
+      ></share-dialog>
+    </main>
+
+    <script type="module">
+      // Import the component so the custom element registers.
+      import './src/share-dialog.ts';
+
+      // Example: override the URL being shared (optional). Uncomment to test.
+      // const shareDialog = document.querySelector('share-dialog');
+      // shareDialog.shareUrl = 'https://example.com/maps/123';
+    </script>
+  </body>
+</html>

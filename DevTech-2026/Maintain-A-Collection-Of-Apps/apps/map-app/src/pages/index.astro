@@ -21,6 +21,8 @@ import Layout from "../layouts/Layout.astro";
       <!-- A Feature Layer in the Web Map has an associated chart (layer-item-id) -->
       <arcgis-chart layer-item-id="b1717962dab247ad93eaca257b32fe02" chart-index="1" slot="bottom-right"></arcgis-chart>
     </arcgis-map>
+
+    <share-dialog></share-dialog>
   </calcite-shell>
 
   <script>
@@ -43,6 +45,7 @@ import Layout from "../layouts/Layout.astro";
     import "@esri/calcite-components/components/calcite-shell";
     import "@esri/calcite-components/components/calcite-navigation";
     import "@esri/calcite-components/components/calcite-navigation-logo";
+    import "@devtech/components/share-dialog";
     import { hello } from "@devtech/utils";
 
     // Import modules and types from the SDK's core API
@@ -58,6 +61,21 @@ import Layout from "../layouts/Layout.astro";
     viewElement?.addEventListener("arcgisViewReadyChange", () => {
       // Use metadata from the Web Map to populate the header
       const map = viewElement.map;
+      // If the WebMap exposes a portal object (or similar), use it to set the JSAPI locale.
+      // We call this non-blocking so the UI initialization remains responsive.
+      try {
+        // map.portal may exist on the map or be reachable via other properties depending on the API.
+        // Pass the map itself as a best-effort source for portal/user info; the util will fallback gracefully.
+        import("@devtech/utils").then(({ setLocaleFromPortal }) => {
+          try {
+            setLocaleFromPortal((map as any).portal || (map as any));
+          } catch {
+            // ignore
+          }
+        });
+      } catch {
+        // ignore
+      }
       const portalItem = map instanceof WebMap ? map.portalItem : undefined;
       const title = portalItem?.title ? portalItem.title : "A web map";
       const description = portalItem?.description ? portalItem.description : defaultDescription;
