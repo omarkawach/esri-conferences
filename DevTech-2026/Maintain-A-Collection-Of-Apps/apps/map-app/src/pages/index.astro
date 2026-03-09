@@ -61,6 +61,21 @@ import Layout from "../layouts/Layout.astro";
     viewElement?.addEventListener("arcgisViewReadyChange", () => {
       // Use metadata from the Web Map to populate the header
       const map = viewElement.map;
+      // If the WebMap exposes a portal object (or similar), use it to set the JSAPI locale.
+      // We call this non-blocking so the UI initialization remains responsive.
+      try {
+        // map.portal may exist on the map or be reachable via other properties depending on the API.
+        // Pass the map itself as a best-effort source for portal/user info; the util will fallback gracefully.
+        import("@devtech/utils").then(({ setLocaleFromPortal }) => {
+          try {
+            setLocaleFromPortal((map as any).portal || (map as any));
+          } catch {
+            // ignore
+          }
+        });
+      } catch {
+        // ignore
+      }
       const portalItem = map instanceof WebMap ? map.portalItem : undefined;
       const title = portalItem?.title ? portalItem.title : "A web map";
       const description = portalItem?.description ? portalItem.description : defaultDescription;
