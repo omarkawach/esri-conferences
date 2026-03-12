@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <!-- Page content — layout provides the calcite-shell and shared chrome -->
+  <div id="viewDiv"></div>
+
+  <script>
+    import { hello } from "@devtech/utils";
+
+    import "@arcgis/core/assets/esri/themes/light/main.css";
+    import WebMap from "@arcgis/core/WebMap.js";
+    import MapView from "@arcgis/core/views/MapView.js";
+    import Graphic from "@arcgis/core/Graphic.js";
+    import Point from "@arcgis/core/geometry/Point.js";
+    import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol.js";
+    import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol.js";
+    import Expand from "@arcgis/core/widgets/Expand.js";
+    import Legend from "@arcgis/core/widgets/Legend.js";
+    import Search from "@arcgis/core/widgets/Search.js";
+    import Zoom from "@arcgis/core/widgets/Zoom.js";
+
+    const defaultDescription = hello("from the shared utils package");
+
+    const map = new WebMap({
+      portalItem: { id: "4eb84af574c348dba3d8378c205dcb1b" },
+    });
+
+    const view = new MapView({
+      container: "viewDiv",
+      map,
+    });
+
+    const calciteNavLogo = document.querySelector("calcite-navigation-logo");
+
+    view.when(() => {
+      const portalItem = map.portalItem;
+      const title = portalItem?.title ? portalItem.title : "A web map";
+
+      if (calciteNavLogo) {
+        calciteNavLogo.heading = title;
+        calciteNavLogo.description = defaultDescription;
+      }
+
+      // Add UI widgets
+      view.ui.add(new Search({ view }), "top-right");
+      view.ui.add(new Expand({ view, content: new Legend({ view }) }), "bottom-left");
+
+      // Add a demo graphic (same as component-based page)
+      const point = new Point({ longitude: -98.38, latitude: 38.34 });
+      const outline = new SimpleLineSymbol({ color: "white", width: 2 });
+      const symbol = new SimpleMarkerSymbol({ style: "triangle", size: 20, color: "red", outline });
+      const pointGraphic = new Graphic({ geometry: point, symbol });
+      view.graphics.add(pointGraphic);
+    });
+  </script>
+
+  <style>
+    #viewDiv { position: absolute; inset: 0; }
+  </style>
+</Layout>
