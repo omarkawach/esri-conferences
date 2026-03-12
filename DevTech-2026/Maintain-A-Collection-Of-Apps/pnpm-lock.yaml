@@ -31,6 +31,9 @@ importers:
       '@astrojs/vue':
         specifier: ^6.0.0
         version: 6.0.0(@types/node@24.10.15)(astro@6.0.0-alpha.5(@types/node@24.10.15)(rollup@4.59.0)(typescript@5.9.3))(vue@3.5.30(typescript@5.9.3))
+      '@devtech/components':
+        specifier: workspace:*
+        version: link:../../packages/components
       '@devtech/utils':
         specifier: workspace:*
         version: link:../../packages/utils

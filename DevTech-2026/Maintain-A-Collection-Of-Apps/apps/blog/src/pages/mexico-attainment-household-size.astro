@@ -14,6 +14,18 @@ import VueMapPanel from "../components/vue/MapPanel.vue";
     <VueMapPanel client:only="vue" itemId={"10f5128431d44f9180d9936834100ac5"} />
   </main>
 
+  <share-dialog
+    button-label="Share"
+    dialog-title="Share this post"
+    copy-success-message="Link copied."
+    share-url-label="Share URL"
+    copy-button-label="Copy URL"
+  ></share-dialog>
+
+  <script>
+    import "@devtech/components";
+  </script>
+
   <style>
     .page {
       display: grid;

@@ -14,6 +14,18 @@ import AstroMapPanel from "../components/astro/MapPanel.astro";
     <AstroMapPanel itemId={"dd4b2f25487d4a37a45093ba6acd026d"} />
   </main>
 
+  <share-dialog
+    button-label="Share"
+    dialog-title="Share this post"
+    copy-success-message="Link copied."
+    share-url-label="Share URL"
+    copy-button-label="Copy URL"
+  ></share-dialog>
+
+  <script>
+    import "@devtech/components";
+  </script>
+
   <style>
     .page {
       display: grid;
