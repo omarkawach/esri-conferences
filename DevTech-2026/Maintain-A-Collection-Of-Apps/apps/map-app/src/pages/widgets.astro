@@ -37,11 +37,10 @@ import Layout from "../layouts/Layout.astro";
     view.when(() => {
       const portalItem = map.portalItem;
       const title = portalItem?.title ? portalItem.title : "A web map";
-      const description = portalItem?.snippet ? portalItem.snippet : defaultDescription;
 
       if (calciteNavLogo) {
         calciteNavLogo.heading = title;
-        calciteNavLogo.description = description;
+        calciteNavLogo.description = defaultDescription;
       }
 
       // Add UI widgets
