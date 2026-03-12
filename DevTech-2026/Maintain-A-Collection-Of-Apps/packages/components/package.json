@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "lit": "^3.3.1",
-    "@esri/calcite-components": "^5.0.0"
+    "@esri/calcite-components": "catalog:"
   },
   "devDependencies": {
-    "vite": "^5.2.0"
+    "vite": "catalog:"
   },
   "packageManager": "pnpm@10.28.2"
 }

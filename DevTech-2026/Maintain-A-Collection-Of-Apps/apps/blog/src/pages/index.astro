@@ -3,105 +3,172 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <!-- The Shell component is used as a layout for this template -->
-  <calcite-shell content-behind>
-    <calcite-navigation slot="header">
-      <!-- Heading and description dynamically populated in the script -->
-      <calcite-navigation-logo heading-level="1" slot="logo"></calcite-navigation-logo>
-    </calcite-navigation>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <h1>B2B spatial analysis and decision support</h1>
+        <p class="lede">
+          We help teams translate GIS data into operational clarity. Below are
+          short demos that mirror real client deliverables.
+        </p>
+        <div class="cta-row">
+          <a class="cta" href="mailto:hello@johndoe.gis">Contact</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <p class="hero-title">Service snapshot</p>
+        <ul>
+          <li>Spatial strategy and data readiness</li>
+          <li>Map-first storytelling for executives</li>
+          <li>Reusable components across frameworks</li>
+        </ul>
+      </div>
+    </section>
 
-    <!-- The Map component fits to the size of the parent element -->
-    <!-- The basemap, extent, zoom and more are provided by the Web Map (item-id) -->
-    <arcgis-map item-id="dd4b2f25487d4a37a45093ba6acd026d">
-      <arcgis-zoom slot="top-left"></arcgis-zoom>
-      <arcgis-search slot="top-right"></arcgis-search>
-      <arcgis-expand slot="bottom-left">
-        <arcgis-legend></arcgis-legend>
-      </arcgis-expand>
-      <!-- A Feature Layer in the Web Map has an associated chart (layer-item-id) -->
-      <arcgis-chart layer-item-id="b1717962dab247ad93eaca257b32fe02" chart-index="1" slot="bottom-right"></arcgis-chart>
-    </arcgis-map>
-  </calcite-shell>
+    <section class="blog">
+      <h2>Latest briefings</h2>
+      <p class="lede">Short posts with ArcGIS Maps SDK examples.</p>
+      <nav class="post-list">
+        <a class="post-row" href="/wheat-production/">
+          <div>
+            <h3>Wheat production, 1997 to 2024</h3>
+            <p>Astro-based map panel for long-term production trends.</p>
+          </div>
+          <span class="tag">Astro</span>
+        </a>
+        <a class="post-row" href="/eugene-parcels/">
+          <div>
+            <h3>Eugene parcels</h3>
+            <p>React client-only map panel for parcel intelligence.</p>
+          </div>
+          <span class="tag">React</span>
+        </a>
+        <a class="post-row" href="/mexico-attainment-household-size/">
+          <div>
+            <h3>Educational attainment and household size in Mexico</h3>
+            <p>Vue map panel showing census-driven indicators.</p>
+          </div>
+          <span class="tag">Vue</span>
+        </a>
+      </nav>
+    </section>
+  </main>
 
-  <script>
-    // Optional: If you're loading secure web maps
-    // import { configureOAuth } from "../auth/configureOAuth";
-    // configureOAuth({
-    //   // Default portalUrl is ArcGIS Online
-    //   // Only set if using other portals
-    //   portalUrl: "YOUR_PORTAL_URL",
-    //   appId: "YOUR_APP_ID",
-    // });
+  <style is:inline>
+    .page {
+      display: grid;
+      gap: 2.5rem;
+      padding: 2rem 1.5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-    // Individual imports for each Map, Chart and Calcite component
-    import "@arcgis/map-components/components/arcgis-expand";
-    import "@arcgis/map-components/components/arcgis-legend";
-    import "@arcgis/map-components/components/arcgis-map";
-    import "@arcgis/map-components/components/arcgis-search";
-    import "@arcgis/map-components/components/arcgis-zoom";
-    import "@arcgis/charts-components/components/arcgis-chart";
-    import "@esri/calcite-components/components/calcite-shell";
-    import "@esri/calcite-components/components/calcite-navigation";
-    import "@esri/calcite-components/components/calcite-navigation-logo";
-    import { hello } from "@devtech/utils";
+    .hero {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      align-items: start;
+    }
 
-    // Import modules and types from the SDK's core API
-    import Graphic from "@arcgis/core/Graphic.js";
-    import WebMap from "@arcgis/core/WebMap.js";
-    import Point from "@arcgis/core/geometry/Point.js";
-    import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol.js";
-    import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol.js";
-    const viewElement = document.querySelector("arcgis-map");
-    const calciteNavLogo = document.querySelector("calcite-navigation-logo");
-    const defaultDescription = hello("from the shared utils package");
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: 2.2rem;
+    }
 
-    viewElement?.addEventListener("arcgisViewReadyChange", () => {
-      // Use metadata from the Web Map to populate the header
-      const map = viewElement.map;
-      const portalItem = map instanceof WebMap ? map.portalItem : undefined;
-      const title = portalItem?.title ? portalItem.title : "A web map";
-      const description = portalItem?.description ? portalItem.description : defaultDescription;
+    .lede {
+      font-size: 1.05rem;
+      margin: 0;
+      color: var(--calcite-color-text-2);
+    }
 
-      if (calciteNavLogo) {
-        calciteNavLogo.heading = title;
-        calciteNavLogo.description = description;
+    .cta-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .cta {
+      background: var(--calcite-color-brand);
+      color: #101010;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero-panel {
+      border: 1px solid var(--calcite-color-border-2);
+      border-radius: 12px;
+      padding: 1.25rem;
+      background: var(--calcite-color-foreground-1);
+    }
+
+    .hero-title {
+      margin: 0 0 0.5rem;
+      font-weight: 600;
+    }
+
+    .hero-panel ul {
+      margin: 0;
+      padding-left: 1rem;
+      color: var(--calcite-color-text-2);
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .blog h2 {
+      margin: 0 0 0.5rem;
+    }
+
+    .post-list {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .post-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--calcite-color-border-2);
+      background: var(--calcite-color-foreground-1);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .post-row h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.1rem;
+    }
+
+    .post-row p {
+      margin: 0;
+      color: var(--calcite-color-text-2);
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: var(--calcite-color-foreground-3);
+      color: var(--calcite-color-text-1);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
       }
 
-      // Define a point geometry
-      const point = new Point({
-        longitude: -98.38,
-        latitude: 38.34,
-      });
-
-      // Create an outline for the marker symbol
-      const outline = new SimpleLineSymbol({
-        color: "white",
-        width: 2,
-      });
-
-      // Create a symbol for drawing the point
-      const symbol = new SimpleMarkerSymbol({
-        style: "triangle",
-        size: 20,
-        color: "red",
-        outline,
-      });
-
-      // Create a graphic and add the geometry and symbol to it
-      const pointGraphic = new Graphic({
-        geometry: point,
-        symbol,
-      });
-
-      // Add a graphic to demonstrate custom visualizations beyond Web Map content
-      viewElement.graphics.add(pointGraphic);
-    });
-  </script>
-
-  <style>
-    arcgis-chart {
-      width: 350px;
-      height: 250px;
+      .post-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </Layout>

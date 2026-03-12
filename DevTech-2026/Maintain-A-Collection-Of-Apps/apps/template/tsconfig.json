@@ -1,27 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2024"
-    ],
-    "types": [
-      "astro/client",
-      "node"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ES2024"],
+    "types": ["astro/client", "node"],
     "module": "ES2020",
     "moduleResolution": "Bundler",
     "noUnusedLocals": true,
@@ -33,8 +21,6 @@
     "noEmit": true,
     "target": "ES2023",
     "skipLibCheck": true,
-    "strict": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "strict": true
   }
 }

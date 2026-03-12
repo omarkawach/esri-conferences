@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VueMapPanel from "../components/vue/MapPanel.vue";
+---
+
+<Layout>
+  <main class="page">
+    <h1>Learn about educational attainment and household size in Mexico</h1>
+    <h2>Background</h2>
+    <p class="lede">
+      This post demonstrates the same component in Vue, focusing on
+      educational attainment and household size in Mexico.
+    </p>
+    <VueMapPanel client:only="vue" itemId={"10f5128431d44f9180d9936834100ac5"} />
+  </main>
+
+  <style>
+    .page {
+      display: grid;
+      gap: 1rem;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .lede {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+  </style>
+</Layout>

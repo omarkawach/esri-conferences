@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AstroMapPanel from "../components/astro/MapPanel.astro";
+---
+
+<Layout>
+  <main class="page">
+    <h1>Learn about wheat production</h1>
+    <h2>Background</h2>
+    <p class="lede">
+      This post highlights changes in wheat production over time. The map is a
+      reusable Astro component configured only with an item ID.
+    </p>
+    <AstroMapPanel itemId={"dd4b2f25487d4a37a45093ba6acd026d"} />
+  </main>
+
+  <style>
+    .page {
+      display: grid;
+      gap: 1rem;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .lede {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+  </style>
+</Layout>

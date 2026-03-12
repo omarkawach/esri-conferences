@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ReactMapPanel from "../components/react/MapPanel";
+---
+
+<Layout>
+  <main class="page">
+    <h1>Learn about Eugene parcels</h1>
+    <h2>Background</h2>
+    <p class="lede">
+      This route shows parcels in Eugene using the same MapPanel component,
+      rendered as React with a client-only directive.
+    </p>
+    <ReactMapPanel
+      client:only="react"
+      itemId={"c8b403fcead543a2acf209719cb879ae"}
+    />
+  </main>
+
+  <style>
+    .page {
+      display: grid;
+      gap: 1rem;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .lede {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+  </style>
+</Layout>

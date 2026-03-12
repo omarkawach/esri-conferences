@@ -1,0 +1,68 @@
+---
+import { hello } from "@devtech/utils";
+
+interface Props {
+  itemId: string;
+  description?: string;
+}
+
+const defaultDescription = hello("from the shared utils package");
+const { itemId, description = defaultDescription } = Astro.props;
+---
+
+<calcite-panel
+  id="astro-panel"
+  description={description}
+  class="map-panel"
+>
+  <arcgis-map id="astro-map" item-id={itemId}>
+    <arcgis-zoom slot="top-left"></arcgis-zoom>
+    <arcgis-search slot="top-right"></arcgis-search>
+    <arcgis-expand slot="bottom-left">
+      <arcgis-legend></arcgis-legend>
+    </arcgis-expand>
+  </arcgis-map>
+</calcite-panel>
+
+<script>
+  import "@arcgis/map-components/components/arcgis-expand";
+  import "@arcgis/map-components/components/arcgis-legend";
+  import "@arcgis/map-components/components/arcgis-map";
+  import "@arcgis/map-components/components/arcgis-search";
+  import "@arcgis/map-components/components/arcgis-zoom";
+  import "@esri/calcite-components/components/calcite-panel";
+  
+  import type WebMap from "@arcgis/core/WebMap";
+
+  const mapElement = document.querySelector("#astro-map") as HTMLArcgisMapElement;
+  const panelElement = document.querySelector("#astro-panel") as HTMLCalcitePanelElement;
+
+  mapElement?.addEventListener("arcgisViewReadyChange", () => {
+    const webmap = mapElement?.map as WebMap;
+    const portalItem = webmap.portalItem;
+    const heading = portalItem?.title;
+    const description = portalItem?.snippet || portalItem?.description;
+
+    if (panelElement && heading) {
+      panelElement.heading = heading;
+    }
+
+    if (panelElement && description) {
+      panelElement.description = description;
+    }
+  });
+</script>
+
+<style>
+  .map-panel {
+    --calcite-panel-space: 0.75rem;
+    border-radius: 12px;
+  }
+
+  arcgis-map {
+    display: block;
+    height: 420px;
+    width: 100%;
+  }
+
+</style>

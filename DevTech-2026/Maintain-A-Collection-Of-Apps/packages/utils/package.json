@@ -9,5 +9,8 @@
   },
   "types": "./src/index.ts",
   "private": true,
-  "packageManager": "pnpm@10.28.2"
+  "packageManager": "pnpm@10.28.2",
+  "dependencies": {
+    "@arcgis/core": "^5.0.9"
+  }
 }
