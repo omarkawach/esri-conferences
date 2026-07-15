@@ -1,0 +1,3032 @@
+{
+    "layers": [
+        {
+            "layerDefinition": {
+                "defaultVisibility": true,
+                "definitionExpression": "Wheat_prod_2022 > 200000",
+                "drawingInfo": {
+                    "labelingInfo": [
+                        {
+                            "labelExpressionInfo": {
+                                "expression": "var total = DefaultValue($feature.Wheat_prod_2022, 0);\nvar durum = DefaultValue($feature.Spring_wheat_prod_2022, 0);\nvar winter = DefaultValue($feature.Winter_wheat_prod_2022, 0);\nvar spring = DefaultValue($feature.Spring_wheat_prod_nodurum_2022, 0);\n\nreturn `Total: ${Text(total, \"#,###\")}\nWinter: ${Text(winter, \"#,###\")}\nSpring: ${Text(spring, \"#,###\")}\nDurum: ${Text(durum, \"#,###\")}\n`",
+                                "title": "New expression"
+                            },
+                            "labelPlacement": "esriServerPolygonPlacementAlwaysHorizontal",
+                            "maxScale": 0,
+                            "minScale": 901471.021675,
+                            "repeatLabel": true,
+                            "symbol": {
+                                "type": "esriTS",
+                                "color": [
+                                    135,
+                                    99,
+                                    7,
+                                    255
+                                ],
+                                "font": {
+                                    "family": "Avenir Next LT Pro",
+                                    "size": 10.5
+                                },
+                                "horizontalAlignment": "center",
+                                "kerning": true,
+                                "haloColor": [
+                                    219,
+                                    217,
+                                    217,
+                                    163
+                                ],
+                                "haloSize": 1,
+                                "rotated": false,
+                                "text": "",
+                                "verticalAlignment": "baseline",
+                                "xoffset": 0,
+                                "yoffset": -10,
+                                "angle": 0
+                            }
+                        },
+                        {
+                            "labelExpression": "[NAMELSAD]",
+                            "labelExpressionInfo": {
+                                "expression": "$feature[\"NAMELSAD\"]"
+                            },
+                            "labelPlacement": "esriServerPolygonPlacementAlwaysHorizontal",
+                            "maxScale": 0,
+                            "minScale": 869576.633519,
+                            "repeatLabel": true,
+                            "symbol": {
+                                "type": "esriTS",
+                                "color": [
+                                    135,
+                                    99,
+                                    7,
+                                    255
+                                ],
+                                "font": {
+                                    "family": "Avenir Next LT Pro",
+                                    "size": 11.25,
+                                    "weight": "bold"
+                                },
+                                "horizontalAlignment": "center",
+                                "kerning": true,
+                                "haloColor": [
+                                    247,
+                                    247,
+                                    247,
+                                    255
+                                ],
+                                "haloSize": 1,
+                                "rotated": false,
+                                "text": "",
+                                "verticalAlignment": "baseline",
+                                "xoffset": 0,
+                                "yoffset": 20,
+                                "angle": 0
+                            }
+                        }
+                    ],
+                    "renderer": {
+                        "authoringInfo": {
+                            "classificationMethod": "esriClassifyManual",
+                            "type": "univariateColorSize",
+                            "visualVariables": [
+                                {
+                                    "maxSliderValue": 8465888,
+                                    "minSliderValue": -17638751,
+                                    "theme": "above-and-below",
+                                    "type": "sizeInfo"
+                                }
+                            ],
+                            "univariateSymbolStyle": "circle",
+                            "univariateTheme": "above-and-below"
+                        },
+                        "type": "classBreaks",
+                        "visualVariables": [
+                            {
+                                "type": "sizeInfo",
+                                "valueExpression": "$feature.Wheat_prod_2022 - $feature.Wheat_prod_1997",
+                                "valueExpressionTitle": "Change in harvested wheat",
+                                "stops": [
+                                    {
+                                        "label": "",
+                                        "size": 30,
+                                        "value": -17638751
+                                    },
+                                    {
+                                        "label": "",
+                                        "size": 16.500000765360316,
+                                        "value": -8819376
+                                    },
+                                    {
+                                        "label": "",
+                                        "size": 3,
+                                        "value": 0
+                                    },
+                                    {
+                                        "label": "",
+                                        "size": 9.47945469608364,
+                                        "value": 4232944
+                                    },
+                                    {
+                                        "label": "",
+                                        "size": 15.95890939216728,
+                                        "value": 8465888
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "sizeInfo",
+                                "valueExpression": "$view.scale",
+                                "stops": [
+                                    {
+                                        "size": 2,
+                                        "value": 1101211
+                                    },
+                                    {
+                                        "size": 1,
+                                        "value": 3441285
+                                    },
+                                    {
+                                        "size": 0.5,
+                                        "value": 13765142
+                                    },
+                                    {
+                                        "size": 0,
+                                        "value": 27530283
+                                    }
+                                ],
+                                "target": "outline"
+                            }
+                        ],
+                        "backgroundFillSymbol": {
+                            "type": "esriSFS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                0
+                            ],
+                            "outline": {
+                                "type": "esriSLS",
+                                "color": [
+                                    153,
+                                    153,
+                                    153,
+                                    64
+                                ],
+                                "width": 0.75,
+                                "style": "esriSLSSolid"
+                            },
+                            "style": "esriSFSSolid"
+                        },
+                        "classBreakInfos": [
+                            {
+                                "classMaxValue": 0,
+                                "symbol": {
+                                    "type": "CIMSymbolReference",
+                                    "symbol": {
+                                        "type": "CIMPointSymbol",
+                                        "haloSize": 1,
+                                        "scaleX": 1,
+                                        "angleAlignment": "Display",
+                                        "symbolLayers": [
+                                            {
+                                                "type": "CIMVectorMarker",
+                                                "enable": true,
+                                                "anchorPointUnits": "Relative",
+                                                "dominantSizeAxis3D": "Y",
+                                                "size": 10,
+                                                "billboardMode3D": "FaceNearPlane",
+                                                "scaleSymbolsProportionally": true,
+                                                "respectFrame": true,
+                                                "frame": {
+                                                    "xmin": 0,
+                                                    "ymin": 0,
+                                                    "xmax": 32,
+                                                    "ymax": 32
+                                                },
+                                                "clippingPath": {
+                                                    "type": "CIMClippingPath",
+                                                    "clippingType": "Intersect",
+                                                    "path": {
+                                                        "rings": [
+                                                            [
+                                                                [
+                                                                    0,
+                                                                    0
+                                                                ],
+                                                                [
+                                                                    32,
+                                                                    0
+                                                                ],
+                                                                [
+                                                                    32,
+                                                                    32
+                                                                ],
+                                                                [
+                                                                    0,
+                                                                    32
+                                                                ],
+                                                                [
+                                                                    0,
+                                                                    0
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    }
+                                                },
+                                                "markerGraphics": [
+                                                    {
+                                                        "type": "CIMMarkerGraphic",
+                                                        "symbol": {
+                                                            "type": "CIMPolygonSymbol",
+                                                            "symbolLayers": [
+                                                                {
+                                                                    "type": "CIMSolidFill",
+                                                                    "enable": true,
+                                                                    "color": [
+                                                                        179,
+                                                                        74,
+                                                                        0,
+                                                                        255
+                                                                    ],
+                                                                    "colorLocked": false
+                                                                }
+                                                            ]
+                                                        },
+                                                        "geometry": {
+                                                            "rings": [
+                                                                [
+                                                                    [
+                                                                        16,
+                                                                        3.9
+                                                                    ],
+                                                                    [
+                                                                        14.1,
+                                                                        4
+                                                                    ],
+                                                                    [
+                                                                        12.2,
+                                                                        4.5
+                                                                    ],
+                                                                    [
+                                                                        10.5,
+                                                                        5.2
+                                                                    ],
+                                                                    [
+                                                                        8.9,
+                                                                        6.2
+                                                                    ],
+                                                                    [
+                                                                        7.4,
+                                                                        7.4
+                                                                    ],
+                                                                    [
+                                                                        6.2,
+                                                                        8.9
+                                                                    ],
+                                                                    [
+                                                                        5.2,
+                                                                        10.5
+                                                                    ],
+                                                                    [
+                                                                        4.5,
+                                                                        12.2
+                                                                    ],
+                                                                    [
+                                                                        4,
+                                                                        14.1
+                                                                    ],
+                                                                    [
+                                                                        3.9,
+                                                                        16
+                                                                    ],
+                                                                    [
+                                                                        4.1,
+                                                                        18
+                                                                    ],
+                                                                    [
+                                                                        4.6,
+                                                                        20
+                                                                    ],
+                                                                    [
+                                                                        5.4,
+                                                                        21.9
+                                                                    ],
+                                                                    [
+                                                                        6.6,
+                                                                        23.6
+                                                                    ],
+                                                                    [
+                                                                        8,
+                                                                        25.1
+                                                                    ],
+                                                                    [
+                                                                        9.7,
+                                                                        26.3
+                                                                    ],
+                                                                    [
+                                                                        11.5,
+                                                                        27.2
+                                                                    ],
+                                                                    [
+                                                                        13.5,
+                                                                        27.8
+                                                                    ],
+                                                                    [
+                                                                        15.5,
+                                                                        28.1
+                                                                    ],
+                                                                    [
+                                                                        16,
+                                                                        28.1
+                                                                    ],
+                                                                    [
+                                                                        17.9,
+                                                                        28
+                                                                    ],
+                                                                    [
+                                                                        19.8,
+                                                                        27.5
+                                                                    ],
+                                                                    [
+                                                                        21.5,
+                                                                        26.8
+                                                                    ],
+                                                                    [
+                                                                        23.1,
+                                                                        25.8
+                                                                    ],
+                                                                    [
+                                                                        24.6,
+                                                                        24.6
+                                                                    ],
+                                                                    [
+                                                                        25.8,
+                                                                        23.1
+                                                                    ],
+                                                                    [
+                                                                        26.8,
+                                                                        21.5
+                                                                    ],
+                                                                    [
+                                                                        27.5,
+                                                                        19.8
+                                                                    ],
+                                                                    [
+                                                                        28,
+                                                                        17.9
+                                                                    ],
+                                                                    [
+                                                                        28.1,
+                                                                        16
+                                                                    ],
+                                                                    [
+                                                                        27.9,
+                                                                        13.7
+                                                                    ],
+                                                                    [
+                                                                        27.2,
+                                                                        11.5
+                                                                    ],
+                                                                    [
+                                                                        26.2,
+                                                                        9.4
+                                                                    ],
+                                                                    [
+                                                                        24.7,
+                                                                        7.6
+                                                                    ],
+                                                                    [
+                                                                        23,
+                                                                        6.1
+                                                                    ],
+                                                                    [
+                                                                        21,
+                                                                        5
+                                                                    ],
+                                                                    [
+                                                                        18.8,
+                                                                        4.2
+                                                                    ],
+                                                                    [
+                                                                        16.5,
+                                                                        3.9
+                                                                    ],
+                                                                    [
+                                                                        16,
+                                                                        3.9
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    [
+                                                                        16,
+                                                                        0.9
+                                                                    ],
+                                                                    [
+                                                                        18.9,
+                                                                        1.2
+                                                                    ],
+                                                                    [
+                                                                        21.8,
+                                                                        2
+                                                                    ],
+                                                                    [
+                                                                        24.4,
+                                                                        3.4
+                                                                    ],
+                                                                    [
+                                                                        26.7,
+                                                                        5.3
+                                                                    ],
+                                                                    [
+                                                                        28.6,
+                                                                        7.6
+                                                                    ],
+                                                                    [
+                                                                        30,
+                                                                        10.2
+                                                                    ],
+                                                                    [
+                                                                        30.8,
+                                                                        13.1
+                                                                    ],
+                                                                    [
+                                                                        31.1,
+                                                                        16
+                                                                    ],
+                                                                    [
+                                                                        30.9,
+                                                                        18.4
+                                                                    ],
+                                                                    [
+                                                                        30.4,
+                                                                        20.7
+                                                                    ],
+                                                                    [
+                                                                        29.5,
+                                                                        22.9
+                                                                    ],
+                                                                    [
+                                                                        28.2,
+                                                                        24.9
+                                                                    ],
+                                                                    [
+                                                                        26.7,
+                                                                        26.7
+                                                                    ],
+                                                                    [
+                                                                        24.9,
+                                                                        28.2
+                                                                    ],
+                                                                    [
+                                                                        22.9,
+                                                                        29.5
+                                                                    ],
+                                                                    [
+                                                                        20.7,
+                                                                        30.4
+                                                                    ],
+                                                                    [
+                                                                        18.4,
+                                                                        30.9
+                                                                    ],
+                                                                    [
+                                                                        16,
+                                                                        31.1
+                                                                    ],
+                                                                    [
+                                                                        13.6,
+                                                                        30.9
+                                                                    ],
+                                                                    [
+                                                                        11.3,
+                                                                        30.4
+                                                                    ],
+                                                                    [
+                                                                        9.1,
+                                                                        29.5
+                                                                    ],
+                                                                    [
+                                                                        7.1,
+                                                                        28.2
+                                                                    ],
+                                                                    [
+                                                                        5.3,
+                                                                        26.7
+                                                                    ],
+                                                                    [
+                                                                        3.8,
+                                                                        24.9
+                                                                    ],
+                                                                    [
+                                                                        2.5,
+                                                                        22.9
+                                                                    ],
+                                                                    [
+                                                                        1.6,
+                                                                        20.7
+                                                                    ],
+                                                                    [
+                                                                        1.1,
+                                                                        18.4
+                                                                    ],
+                                                                    [
+                                                                        0.9,
+                                                                        16
+                                                                    ],
+                                                                    [
+                                                                        1.2,
+                                                                        13.1
+                                                                    ],
+                                                                    [
+                                                                        2,
+                                                                        10.2
+                                                                    ],
+                                                                    [
+                                                                        3.4,
+                                                                        7.6
+                                                                    ],
+                                                                    [
+                                                                        5.3,
+                                                                        5.3
+                                                                    ],
+                                                                    [
+                                                                        7.6,
+                                                                        3.4
+                                                                    ],
+                                                                    [
+                                                                        10.2,
+                                                                        2
+                                                                    ],
+                                                                    [
+                                                                        13.1,
+                                                                        1.2
+                                                                    ],
+                                                                    [
+                                                                        16,
+                                                                        0.9
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "classMaxValue": 9007199254740991,
+                                "symbol": {
+                                    "type": "CIMSymbolReference",
+                                    "symbol": {
+                                        "type": "CIMPointSymbol",
+                                        "haloSize": 1,
+                                        "scaleX": 1,
+                                        "angleAlignment": "Display",
+                                        "symbolLayers": [
+                                            {
+                                                "type": "CIMVectorMarker",
+                                                "enable": true,
+                                                "anchorPointUnits": "Relative",
+                                                "dominantSizeAxis3D": "Y",
+                                                "size": 10,
+                                                "billboardMode3D": "FaceNearPlane",
+                                                "scaleSymbolsProportionally": true,
+                                                "respectFrame": true,
+                                                "frame": {
+                                                    "xmin": 0,
+                                                    "ymin": 0,
+                                                    "xmax": 32,
+                                                    "ymax": 32
+                                                },
+                                                "clippingPath": {
+                                                    "type": "CIMClippingPath",
+                                                    "clippingType": "Intersect",
+                                                    "path": {
+                                                        "rings": [
+                                                            [
+                                                                [
+                                                                    0,
+                                                                    0
+                                                                ],
+                                                                [
+                                                                    32,
+                                                                    0
+                                                                ],
+                                                                [
+                                                                    32,
+                                                                    32
+                                                                ],
+                                                                [
+                                                                    0,
+                                                                    32
+                                                                ],
+                                                                [
+                                                                    0,
+                                                                    0
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    }
+                                                },
+                                                "markerGraphics": [
+                                                    {
+                                                        "type": "CIMMarkerGraphic",
+                                                        "symbol": {
+                                                            "type": "CIMPolygonSymbol",
+                                                            "symbolLayers": [
+                                                                {
+                                                                    "type": "CIMSolidFill",
+                                                                    "enable": true,
+                                                                    "color": [
+                                                                        0,
+                                                                        153,
+                                                                        140,
+                                                                        255
+                                                                    ],
+                                                                    "colorLocked": false
+                                                                }
+                                                            ]
+                                                        },
+                                                        "geometry": {
+                                                            "rings": [
+                                                                [
+                                                                    [
+                                                                        16,
+                                                                        0.9
+                                                                    ],
+                                                                    [
+                                                                        17.4,
+                                                                        1
+                                                                    ],
+                                                                    [
+                                                                        18,
+                                                                        1
+                                                                    ],
+                                                                    [
+                                                                        18.7,
+                                                                        1.2
+                                                                    ],
+                                                                    [
+                                                                        19.5,
+                                                                        1.3
+                                                                    ],
+                                                                    [
+                                                                        20.2,
+                                                                        1.5
+                                                                    ],
+                                                                    [
+                                                                        20.9,
+                                                                        1.7
+                                                                    ],
+                                                                    [
+                                                                        21.6,
+                                                                        2
+                                                                    ],
+                                                                    [
+                                                                        22.3,
+                                                                        2.3
+                                                                    ],
+                                                                    [
+                                                                        22.9,
+                                                                        2.6
+                                                                    ],
+                                                                    [
+                                                                        23.6,
+                                                                        3
+                                                                    ],
+                                                                    [
+                                                                        24.3,
+                                                                        3.4
+                                                                    ],
+                                                                    [
+                                                                        24.9,
+                                                                        3.8
+                                                                    ],
+                                                                    [
+                                                                        25.5,
+                                                                        4.3
+                                                                    ],
+                                                                    [
+                                                                        26.1,
+                                                                        4.8
+                                                                    ],
+                                                                    [
+                                                                        26.7,
+                                                                        5.3
+                                                                    ],
+                                                                    [
+                                                                        27.2,
+                                                                        5.9
+                                                                    ],
+                                                                    [
+                                                                        27.7,
+                                                                        6.5
+                                                                    ],
+                                                                    [
+                                                                        28.2,
+                                                                        7.1
+                                                                    ],
+                                                                    [
+                                                                        28.6,
+                                                                        7.7
+                                                                    ],
+                                                                    [
+                                                                        29,
+                                                                        8.4
+                                                                    ],
+                                                                    [
+                                                                        29.4,
+                                                                        9.1
+                                                                    ],
+                                                                    [
+                                                                        29.7,
+                                                                        9.7
+                                                                    ],
+                                                                    [
+                                                                        30,
+                                                                        10.4
+                                                                    ],
+                                                                    [
+                                                                        30.3,
+                                                                        11.1
+                                                                    ],
+                                                                    [
+                                                                        30.5,
+                                                                        11.8
+                                                                    ],
+                                                                    [
+                                                                        30.7,
+                                                                        12.5
+                                                                    ],
+                                                                    [
+                                                                        30.8,
+                                                                        13.3
+                                                                    ],
+                                                                    [
+                                                                        31,
+                                                                        14
+                                                                    ],
+                                                                    [
+                                                                        31,
+                                                                        14.6
+                                                                    ],
+                                                                    [
+                                                                        31.1,
+                                                                        15.3
+                                                                    ],
+                                                                    [
+                                                                        31.1,
+                                                                        16
+                                                                    ],
+                                                                    [
+                                                                        30.9,
+                                                                        18.4
+                                                                    ],
+                                                                    [
+                                                                        30.4,
+                                                                        20.7
+                                                                    ],
+                                                                    [
+                                                                        29.5,
+                                                                        22.9
+                                                                    ],
+                                                                    [
+                                                                        28.2,
+                                                                        24.9
+                                                                    ],
+                                                                    [
+                                                                        26.7,
+                                                                        26.7
+                                                                    ],
+                                                                    [
+                                                                        24.9,
+                                                                        28.2
+                                                                    ],
+                                                                    [
+                                                                        22.9,
+                                                                        29.5
+                                                                    ],
+                                                                    [
+                                                                        20.7,
+                                                                        30.4
+                                                                    ],
+                                                                    [
+                                                                        18.4,
+                                                                        30.9
+                                                                    ],
+                                                                    [
+                                                                        16,
+                                                                        31.1
+                                                                    ],
+                                                                    [
+                                                                        13.6,
+                                                                        30.9
+                                                                    ],
+                                                                    [
+                                                                        11.3,
+                                                                        30.4
+                                                                    ],
+                                                                    [
+                                                                        9.1,
+                                                                        29.5
+                                                                    ],
+                                                                    [
+                                                                        7.1,
+                                                                        28.2
+                                                                    ],
+                                                                    [
+                                                                        5.3,
+                                                                        26.7
+                                                                    ],
+                                                                    [
+                                                                        3.8,
+                                                                        24.9
+                                                                    ],
+                                                                    [
+                                                                        2.5,
+                                                                        22.9
+                                                                    ],
+                                                                    [
+                                                                        1.6,
+                                                                        20.7
+                                                                    ],
+                                                                    [
+                                                                        1.1,
+                                                                        18.4
+                                                                    ],
+                                                                    [
+                                                                        0.9,
+                                                                        16
+                                                                    ],
+                                                                    [
+                                                                        1.1,
+                                                                        13.6
+                                                                    ],
+                                                                    [
+                                                                        1.6,
+                                                                        11.3
+                                                                    ],
+                                                                    [
+                                                                        2.5,
+                                                                        9.1
+                                                                    ],
+                                                                    [
+                                                                        3.8,
+                                                                        7.1
+                                                                    ],
+                                                                    [
+                                                                        5.3,
+                                                                        5.3
+                                                                    ],
+                                                                    [
+                                                                        7.1,
+                                                                        3.8
+                                                                    ],
+                                                                    [
+                                                                        9.1,
+                                                                        2.5
+                                                                    ],
+                                                                    [
+                                                                        11.3,
+                                                                        1.6
+                                                                    ],
+                                                                    [
+                                                                        13.6,
+                                                                        1.1
+                                                                    ],
+                                                                    [
+                                                                        16,
+                                                                        0.9
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "minValue": -9007199254740991,
+                        "valueExpression": "$feature.Wheat_prod_2022 - $feature.Wheat_prod_1997",
+                        "valueExpressionTitle": "Change in harvested wheat"
+                    }
+                }
+            },
+            "featureEffect": null,
+            "id": 0,
+            "attributeTableInfo": {
+                "attributeTableElements": [
+                    {
+                        "type": "field",
+                        "fieldName": "NAME"
+                    },
+                    {
+                        "type": "field",
+                        "fieldName": "Wheat_prod_1997"
+                    },
+                    {
+                        "type": "field",
+                        "fieldName": "Wheat_prod_2022"
+                    }
+                ],
+                "orderByFields": [
+                    {
+                        "field": "Wheat_prod_2022",
+                        "order": "desc"
+                    }
+                ]
+            },
+            "charts": [
+                {
+                    "version": "23.2.0",
+                    "type": "chart",
+                    "id": "Chart 1740721084105",
+                    "colorMatch": true,
+                    "rotated": false,
+                    "orderOptions": {
+                        "data": {
+                            "orderType": "arcgis-charts-y-value",
+                            "orderBy": "ASC"
+                        }
+                    },
+                    "title": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "Sum of Total wheat production (2022) by State name",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 18
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "footer": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 11
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "background": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ],
+                    "axes": [
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "State name",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "X Axis",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "category",
+                                "characterLimit": 11
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            }
+                        },
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Sum of Total wheat production (2022)",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Count",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "number",
+                                "intlOptions": {
+                                    "style": "decimal",
+                                    "minimumFractionDigits": 0,
+                                    "maximumFractionDigits": 3,
+                                    "useGrouping": true
+                                }
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            },
+                            "grid": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    25
+                                ],
+                                "width": 1
+                            },
+                            "integerOnlyValues": false,
+                            "minimum": null,
+                            "maximum": null
+                        }
+                    ],
+                    "series": [
+                        {
+                            "type": "barSeries",
+                            "id": "Wheat_prod_2022",
+                            "name": "Total wheat production (2022)",
+                            "query": {
+                                "groupByFieldsForStatistics": [
+                                    "StateName"
+                                ],
+                                "outStatistics": [
+                                    {
+                                        "statisticType": "sum",
+                                        "onStatisticField": "Wheat_prod_2022",
+                                        "outStatisticFieldName": "SUM_WHEAT_PROD_2022_0"
+                                    }
+                                ]
+                            },
+                            "x": "StateName",
+                            "y": "SUM_WHEAT_PROD_2022_0",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    31,
+                                    120,
+                                    180,
+                                    178.5
+                                ]
+                            },
+                            "dataLabels": {
+                                "type": "chartText",
+                                "visible": false,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    }
+                                }
+                            },
+                            "hideOversizedStackedLabels": false
+                        }
+                    ],
+                    "legend": {
+                        "type": "chartLegend",
+                        "visible": true,
+                        "title": {
+                            "type": "chartText",
+                            "visible": true,
+                            "content": {
+                                "type": "esriTS",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    178.5
+                                ],
+                                "text": "",
+                                "font": {
+                                    "family": "Arial, Helvetica, sans-serif",
+                                    "size": 13
+                                },
+                                "horizontalAlignment": "center"
+                            }
+                        },
+                        "body": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 12
+                            },
+                            "horizontalAlignment": "center"
+                        },
+                        "position": "right",
+                        "maxHeight": null
+                    },
+                    "dataFilters": {
+                        "where": "Wheat_prod_2022 > 200000"
+                    },
+                    "subtitle": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 10
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    }
+                },
+                {
+                    "version": "18.1.0",
+                    "type": "chart",
+                    "id": "Chart 1740721206393",
+                    "colorMatch": true,
+                    "title": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "Distribution of Total wheat production (1997)",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 18
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "subTitle": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 10
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "footer": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 11
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "background": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ],
+                    "axes": [
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Total wheat production (1997)",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "X Axis",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "number",
+                                "intlOptions": {
+                                    "style": "decimal",
+                                    "minimumFractionDigits": 0,
+                                    "maximumFractionDigits": 3,
+                                    "useGrouping": true
+                                }
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            },
+                            "minimum": null,
+                            "maximum": null
+                        },
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Count",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Count",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "number",
+                                "intlOptions": {
+                                    "style": "decimal",
+                                    "minimumFractionDigits": 0,
+                                    "maximumFractionDigits": 3,
+                                    "useGrouping": true
+                                }
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            },
+                            "grid": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    25
+                                ],
+                                "width": 1
+                            },
+                            "minimum": null,
+                            "maximum": null
+                        }
+                    ],
+                    "series": [
+                        {
+                            "type": "histogramSeries",
+                            "id": "histogramSeries",
+                            "name": "histogramSeries",
+                            "visible": true,
+                            "dataTooltipVisible": true,
+                            "dataTooltipReverseColor": false,
+                            "assignToSecondValueAxis": false,
+                            "x": "Wheat_prod_1997",
+                            "binCount": 58,
+                            "overlays": {
+                                "type": "chartOverlays",
+                                "mean": {
+                                    "type": "chartOverlay",
+                                    "visible": true,
+                                    "created": false,
+                                    "symbol": {
+                                        "type": "esriSLS",
+                                        "style": "esriSLSSolid",
+                                        "color": [
+                                            51,
+                                            124,
+                                            235,
+                                            255
+                                        ],
+                                        "width": 1
+                                    }
+                                },
+                                "median": {
+                                    "type": "chartOverlay",
+                                    "visible": true,
+                                    "created": false,
+                                    "symbol": {
+                                        "type": "esriSLS",
+                                        "style": "esriSLSSolid",
+                                        "color": [
+                                            132,
+                                            0,
+                                            168,
+                                            255
+                                        ],
+                                        "width": 1
+                                    }
+                                },
+                                "standardDeviation": {
+                                    "type": "chartOverlay",
+                                    "visible": true,
+                                    "created": false,
+                                    "symbol": {
+                                        "type": "esriSLS",
+                                        "style": "esriSLSSolid",
+                                        "color": [
+                                            156,
+                                            156,
+                                            156,
+                                            255
+                                        ],
+                                        "width": 1
+                                    }
+                                },
+                                "comparisonDistribution": {
+                                    "type": "chartOverlay",
+                                    "visible": true,
+                                    "created": false,
+                                    "symbol": {
+                                        "type": "esriSLS",
+                                        "style": "esriSLSSolid",
+                                        "color": [
+                                            104,
+                                            104,
+                                            104,
+                                            255
+                                        ],
+                                        "width": 1
+                                    }
+                                }
+                            },
+                            "dataTransformationType": "logarithmic",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    31,
+                                    120,
+                                    180,
+                                    178.5
+                                ]
+                            },
+                            "dataLabels": {
+                                "type": "chartText",
+                                "visible": false,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            }
+                        }
+                    ],
+                    "legend": {
+                        "type": "chartLegend",
+                        "visible": true,
+                        "title": {
+                            "type": "chartText",
+                            "visible": true,
+                            "content": {
+                                "type": "esriTS",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    178.5
+                                ],
+                                "text": "",
+                                "font": {
+                                    "family": "Arial, Helvetica, sans-serif",
+                                    "size": 13
+                                },
+                                "horizontalAlignment": "center"
+                            }
+                        },
+                        "body": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 12
+                            },
+                            "horizontalAlignment": "center"
+                        },
+                        "position": "right",
+                        "maxHeight": null
+                    }
+                },
+                {
+                    "version": "18.1.0",
+                    "type": "chart",
+                    "id": "Chart 1740721323987",
+                    "rotated": false,
+                    "colorMatch": true,
+                    "orderOptions": {
+                        "data": {
+                            "orderType": "arcgis-charts-mean",
+                            "orderBy": "ASC"
+                        }
+                    },
+                    "title": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "Distribution of Total wheat production (1997), Total wheat production (2022) by State name",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 18
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "subTitle": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 10
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "footer": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 11
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "background": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ],
+                    "series": [
+                        {
+                            "name": "Total wheat production (1997)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_1997",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    31,
+                                    120,
+                                    180,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_1997"
+                        },
+                        {
+                            "name": "Total wheat production (2022)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_2022",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    166,
+                                    206,
+                                    227,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_2022"
+                        }
+                    ],
+                    "legend": {
+                        "type": "chartLegend",
+                        "visible": true,
+                        "title": {
+                            "type": "chartText",
+                            "visible": true,
+                            "content": {
+                                "type": "esriTS",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    178.5
+                                ],
+                                "text": "",
+                                "font": {
+                                    "family": "Arial, Helvetica, sans-serif",
+                                    "size": 13
+                                },
+                                "horizontalAlignment": "center"
+                            }
+                        },
+                        "body": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 12
+                            },
+                            "horizontalAlignment": "center"
+                        },
+                        "position": "right",
+                        "maxHeight": null
+                    },
+                    "axes": [
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "State name",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "category",
+                                "characterLimit": 11
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            }
+                        },
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Values",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Count",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "number",
+                                "intlOptions": {
+                                    "style": "decimal",
+                                    "minimumFractionDigits": 0,
+                                    "maximumFractionDigits": 3,
+                                    "useGrouping": true
+                                }
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            },
+                            "grid": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    25
+                                ],
+                                "width": 1
+                            },
+                            "minimum": null,
+                            "maximum": 20000000
+                        }
+                    ],
+                    "standardizeValues": false,
+                    "showOutliers": false,
+                    "dataFilters": {
+                        "where": "Wheat_prod_2022 > 0"
+                    },
+                    "showMean": false
+                },
+                {
+                    "version": "18.1.0",
+                    "type": "chart",
+                    "id": "Chart 1740791221443",
+                    "rotated": false,
+                    "colorMatch": true,
+                    "orderOptions": {
+                        "data": {
+                            "orderType": "arcgis-charts-mean",
+                            "orderBy": "ASC"
+                        }
+                    },
+                    "title": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "Total Wheat Production by Year by State",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 18
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "subTitle": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 10
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "footer": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 11
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "background": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ],
+                    "series": [
+                        {
+                            "name": "Total wheat production (1997)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_1997",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    31,
+                                    120,
+                                    180,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_1997"
+                        },
+                        {
+                            "name": "Total wheat production (2002)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_2002",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    166,
+                                    206,
+                                    227,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_2002"
+                        },
+                        {
+                            "name": "Total wheat production (2007)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_2007",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    51,
+                                    160,
+                                    44,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_2007"
+                        },
+                        {
+                            "name": "Total wheat production (2012)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_2012",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    178,
+                                    223,
+                                    138,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_2012"
+                        },
+                        {
+                            "name": "Total wheat production (2017)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_2017",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    227,
+                                    26,
+                                    28,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_2017"
+                        },
+                        {
+                            "name": "Total wheat production (2022)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_2022",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    251,
+                                    154,
+                                    153,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_2022"
+                        }
+                    ],
+                    "legend": {
+                        "type": "chartLegend",
+                        "visible": true,
+                        "title": {
+                            "type": "chartText",
+                            "visible": true,
+                            "content": {
+                                "type": "esriTS",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    178.5
+                                ],
+                                "text": "",
+                                "font": {
+                                    "family": "Arial, Helvetica, sans-serif",
+                                    "size": 13
+                                },
+                                "horizontalAlignment": "center"
+                            }
+                        },
+                        "body": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 12
+                            },
+                            "horizontalAlignment": "center"
+                        },
+                        "position": "bottom",
+                        "maxHeight": null
+                    },
+                    "axes": [
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "State name",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "category",
+                                "characterLimit": 11
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            }
+                        },
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Values",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Count",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "number",
+                                "intlOptions": {
+                                    "style": "decimal",
+                                    "minimumFractionDigits": 0,
+                                    "maximumFractionDigits": 3,
+                                    "useGrouping": true
+                                }
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            },
+                            "grid": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    25
+                                ],
+                                "width": 1
+                            },
+                            "minimum": null,
+                            "maximum": null
+                        }
+                    ],
+                    "standardizeValues": false,
+                    "showOutliers": false,
+                    "dataFilters": {
+                        "where": "Wheat_prod_2022 > 200000"
+                    },
+                    "showMean": false
+                },
+                {
+                    "version": "18.1.0",
+                    "type": "chart",
+                    "id": "Chart 1741135624984",
+                    "rotated": false,
+                    "colorMatch": false,
+                    "orderOptions": {
+                        "data": {
+                            "orderType": "arcgis-charts-mean",
+                            "orderBy": "ASC"
+                        }
+                    },
+                    "title": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "Comparing Wheat Production between 1997 and 2022 by State",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 18
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "subTitle": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 10
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "footer": {
+                        "type": "chartText",
+                        "visible": true,
+                        "content": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 11
+                            },
+                            "horizontalAlignment": "center"
+                        }
+                    },
+                    "background": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ],
+                    "series": [
+                        {
+                            "name": "Total wheat production (1997)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_1997",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    0,
+                                    153,
+                                    140,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_1997"
+                        },
+                        {
+                            "name": "Total wheat production (2022)",
+                            "type": "boxPlotSeries",
+                            "id": "Wheat_prod_2022",
+                            "fillSymbol": {
+                                "type": "esriSFS",
+                                "style": "esriSFSSolid",
+                                "color": [
+                                    179,
+                                    74,
+                                    0,
+                                    178.5
+                                ]
+                            },
+                            "query": {},
+                            "x": "StateName",
+                            "y": "Wheat_prod_2022"
+                        }
+                    ],
+                    "legend": {
+                        "type": "chartLegend",
+                        "visible": true,
+                        "title": {
+                            "type": "chartText",
+                            "visible": false,
+                            "content": {
+                                "type": "esriTS",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    178.5
+                                ],
+                                "text": "",
+                                "font": {
+                                    "family": "Arial, Helvetica, sans-serif",
+                                    "size": 13
+                                },
+                                "horizontalAlignment": "center"
+                            }
+                        },
+                        "body": {
+                            "type": "esriTS",
+                            "color": [
+                                0,
+                                0,
+                                0,
+                                178.5
+                            ],
+                            "text": "",
+                            "font": {
+                                "family": "Arial, Helvetica, sans-serif",
+                                "size": 12
+                            },
+                            "horizontalAlignment": "center"
+                        },
+                        "position": "bottom",
+                        "maxHeight": null
+                    },
+                    "axes": [
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": false,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "State",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "category",
+                                "characterLimit": 11
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            }
+                        },
+                        {
+                            "type": "chartAxis",
+                            "visible": true,
+                            "title": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Bushels of Wheat",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 14
+                                    },
+                                    "horizontalAlignment": "center",
+                                    "verticalAlignment": "middle"
+                                }
+                            },
+                            "labels": {
+                                "type": "chartText",
+                                "visible": true,
+                                "content": {
+                                    "type": "esriTS",
+                                    "color": [
+                                        0,
+                                        0,
+                                        0,
+                                        178.5
+                                    ],
+                                    "text": "Count",
+                                    "font": {
+                                        "family": "Arial, Helvetica, sans-serif",
+                                        "size": 10
+                                    },
+                                    "horizontalAlignment": "center"
+                                }
+                            },
+                            "valueFormat": {
+                                "type": "number",
+                                "intlOptions": {
+                                    "style": "decimal",
+                                    "minimumFractionDigits": 0,
+                                    "maximumFractionDigits": 3,
+                                    "useGrouping": true
+                                }
+                            },
+                            "lineSymbol": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    156,
+                                    156,
+                                    156,
+                                    255
+                                ],
+                                "width": 1
+                            },
+                            "grid": {
+                                "type": "esriSLS",
+                                "style": "esriSLSSolid",
+                                "color": [
+                                    0,
+                                    0,
+                                    0,
+                                    25
+                                ],
+                                "width": 1
+                            },
+                            "minimum": null,
+                            "maximum": 25000000
+                        }
+                    ],
+                    "standardizeValues": false,
+                    "showOutliers": false,
+                    "dataFilters": {
+                        "where": "Wheat_prod_2022 > 200000"
+                    },
+                    "showMean": false
+                }
+            ],
+            "showLabels": true,
+            "popupInfo": {
+                "popupElements": [
+                    {
+                        "type": "expression",
+                        "expressionInfo": {
+                            "title": "Change summary",
+                            "expression": "var diff = $feature.Wheat_prod_2022 - $feature.Wheat_prod_1997;\nvar color = \"black\";\nvar prefix = \"\";\nif (diff > 0){\n\tcolor = \"#00998c\";\n\tprefix = \"increased by\";\n} else {\n\tcolor = \"#b34a00\";\n\tprefix = \"decreased by\";\n}\n\nvar output = `From 1997 to 2020, total wheat production in ${$feature.NAMELSAD} ${prefix} <b><span style='color:${color}'>${Text(Abs(diff), \"#,###\")}</span></b> bushels.`;\n\nreturn { \n\ttype: 'text', \n\ttext: output\n}",
+                            "returnType": "dictionary"
+                        }
+                    },
+                    {
+                        "type": "expression",
+                        "expressionInfo": {
+                            "title": "New expression",
+                            "expression": "Expects($feature, \"Wheat_prod_*\", \"Winter_wheat_prod_*\", \"Spring_wheat_prod_*\", \"Spring_wheat_prod_nodurum_*\");\n\nvar totalWheatFields = [\n  \"Wheat_prod_1997\",\n  \"Wheat_prod_2002\",\n  \"Wheat_prod_2007\",\n  \"Wheat_prod_2012\",\n  \"Wheat_prod_2017\",\n  \"Wheat_prod_2022\"\n];\n\nfunction featureHasValue(fieldName){\n  return HasValue($feature, fieldName);\n}\n\nvar hasTotalWheatData = Any(totalWheatFields, featureHasValue);\n\nvar mediaInfos = [];\n\nif(hasTotalWheatData){\n  Push(mediaInfos, {\n    altText: \"\",\n    caption: \"Values reported in bushels\",\n    title: \"Total wheat production 1997-2022\",\n    type: \"linechart\",\n    value:\n      {\n        colors: [[40, 136, 184, 255]],\n        fields: totalWheatFields\n      }\n  });\n} else {\n  return {\n    type: \"text\",\n    text: \"This county did not produce any wheat from 1997 - 2022.\"\n  }\n}\n\nvar media = {\n  type: \"media\",\n  title: \"Wheat production 1997-2022\",\n  description:\n    \"Explore the following charts to explore production of various kinds of wheat for the last 25 years.\",\n    mediaInfos\n};\n\nreturn media;",
+                            "returnType": "dictionary"
+                        }
+                    },
+                    {
+                        "type": "expression",
+                        "expressionInfo": {
+                            "title": "New expression",
+                            "expression": "Expects($feature, \"Wheat_prod_*\", \"Winter_wheat_prod_*\", \"Spring_wheat_prod_*\", \"Spring_wheat_prod_nodurum_*\");\n\nvar winterWheatFields = [\n  \"Winter_wheat_prod_2002\",\n  \"Winter_wheat_prod_2007\",\n  \"Winter_wheat_prod_2012\",\n  \"Winter_wheat_prod_2017\",\n  \"Winter_wheat_prod_2022\"\n];\n\nfunction featureHasValue(fieldName){\n  return HasValue($feature, fieldName);\n}\n\nvar hasWinterWheatData = Any(winterWheatFields, featureHasValue);\n\nvar mediaInfos = [];\n\nif(hasWinterWheatData){\n  Push(mediaInfos, {\n    altText: \"\",\n    caption: \"Values reported in bushels\",\n    title: \"Winter wheat production 2002-2022\",\n    type: \"columnchart\",\n    value:\n      {\n        colors: [\n          [160, 53, 0, 255],\n          [160, 53, 0, 255],\n          [160, 53, 0, 255],\n          [160, 53, 0, 255],\n          [160, 53, 0, 255]\n        ],\n        fields: winterWheatFields\n      }\n  });\n}\n\nvar media = {\n  type: \"media\",\n  title: \"\",\n  description:\n    \"\",\n    mediaInfos\n};\n\nreturn media;",
+                            "returnType": "dictionary"
+                        }
+                    },
+                    {
+                        "type": "expression",
+                        "expressionInfo": {
+                            "title": "New expression",
+                            "expression": "Expects($feature, \"Wheat_prod_*\", \"Winter_wheat_prod_*\", \"Spring_wheat_prod_*\", \"Spring_wheat_prod_nodurum_*\");\n\nvar durumWheatFields = [\n  \"Spring_wheat_prod_1997\",\n  \"Spring_wheat_prod_2002\",\n  \"Spring_wheat_prod_2007\",\n  \"Spring_wheat_prod_2012\",\n  \"Spring_wheat_prod_2017\",\n  \"Spring_wheat_prod_2022\"\n];\n\nfunction featureHasValue(fieldName){\n  return HasValue($feature, fieldName);\n}\n\nvar hasDurumWheatData = Any(durumWheatFields, featureHasValue);\n\nvar mediaInfos = [];\n\nif(hasDurumWheatData){\n  Push(mediaInfos, {\n    altText: \"\",\n    caption: \"Values reported in bushels\",\n    title: \"Durum wheat production (1997-2022)\",\n    type: \"columnchart\",\n    value:\n      {\n        colors: [\n          [217, 180, 0, 255],\n          [217, 180, 0, 255],\n          [217, 180, 0, 255],\n          [217, 180, 0, 255],\n          [217, 180, 0, 255],\n          [217, 180, 0, 255]\n        ],\n        fields: durumWheatFields\n      }\n  });\n}\n\nvar media = {\n  type: \"media\",\n  title: \"\",\n  description:\n    \"\",\n    mediaInfos\n};\n\nreturn media;",
+                            "returnType": "dictionary"
+                        }
+                    },
+                    {
+                        "type": "expression",
+                        "expressionInfo": {
+                            "title": "New expression",
+                            "expression": "Expects($feature, \"Wheat_prod_*\", \"Winter_wheat_prod_*\", \"Spring_wheat_prod_*\", \"Spring_wheat_prod_nodurum_*\");\n\nvar springWheatFields = [\n  \"Spring_wheat_prod_nodurum_1997\",\n  \"Spring_wheat_prod_nodurum_2002\",\n  \"Spring_wheat_prod_nodurum_2007\",\n  \"Spring_wheat_prod_nodurum_2012\",\n  \"Spring_wheat_prod_nodurum_2017\",\n  \"Spring_wheat_prod_nodurum_2022\"\n];\n\nfunction featureHasValue(fieldName){\n  return HasValue($feature, fieldName);\n}\n\nvar hasSpringWheatData = Any(springWheatFields, featureHasValue);\n\nvar mediaInfos = [];\n\nif(hasSpringWheatData){\n  Push(mediaInfos, {\n    altText: \"\",\n    caption: \"Values reported in bushels\",\n    title: \"Spring wheat production (1997-2022)\",\n    type: \"columnchart\",\n    value:\n      {\n        colors: [\n          [50, 100, 200, 255],\n          [50, 100, 200, 255],\n          [50, 100, 200, 255],\n          [50, 100, 200, 255],\n          [50, 100, 200, 255],\n          [50, 100, 200, 255]\n        ],\n        fields: springWheatFields\n      }\n  });\n}\n\nvar media = {\n  type: \"media\",\n  title: \"\",\n  description:\n    \"\",\n    mediaInfos\n};\n\nreturn media;",
+                            "returnType": "dictionary"
+                        }
+                    }
+                ],
+                "fieldInfos": [
+                    {
+                        "fieldName": "OBJECTID",
+                        "isEditable": false,
+                        "label": "OBJECTID",
+                        "visible": false
+                    },
+                    {
+                        "fieldName": "NAME",
+                        "isEditable": true,
+                        "label": "County Name",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "ALAND",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 2
+                        },
+                        "isEditable": true,
+                        "label": "ALAND",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "AWATER",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 2
+                        },
+                        "isEditable": true,
+                        "label": "AWATER",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "CBSAFP",
+                        "isEditable": true,
+                        "label": "CBSAFP",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "CLASSFP",
+                        "isEditable": true,
+                        "label": "CLASSFP",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "COUNTY_FIPS",
+                        "isEditable": true,
+                        "label": "COUNTY_FIPS",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "COUNTYFP",
+                        "isEditable": true,
+                        "label": "COUNTYFP",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "COUNTYNS",
+                        "isEditable": true,
+                        "label": "COUNTYNS",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "CSAFP",
+                        "isEditable": true,
+                        "label": "CSAFP",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "FID",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "FID",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "FUNCSTAT",
+                        "isEditable": true,
+                        "label": "FUNCSTAT",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "GEOID",
+                        "isEditable": true,
+                        "label": "GEOID",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "INTPTLAT",
+                        "isEditable": true,
+                        "label": "INTPTLAT",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "INTPTLON",
+                        "isEditable": true,
+                        "label": "INTPTLON",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "join_COUNTY_FIPS",
+                        "isEditable": true,
+                        "label": "join_COUNTY_FIPS",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "join_COUNTY_FIPS1",
+                        "isEditable": true,
+                        "label": "join_COUNTY_FIPS1",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "join_COUNTY_FIPS2",
+                        "isEditable": true,
+                        "label": "join_COUNTY_FIPS2",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "LSAD",
+                        "isEditable": true,
+                        "label": "LSAD",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "METDIVFP",
+                        "isEditable": true,
+                        "label": "METDIVFP",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "MTFCC",
+                        "isEditable": true,
+                        "label": "MTFCC",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "NAMELSAD",
+                        "isEditable": true,
+                        "label": "NAMELSAD",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Shape__Area",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 2
+                        },
+                        "isEditable": false,
+                        "label": "Shape__Area",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Shape__Length",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 2
+                        },
+                        "isEditable": false,
+                        "label": "Shape__Length",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_1997",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Durum wheat production (1997)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_2002",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Durum wheat production (2002)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_2007",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Durum wheat production (2007)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_2012",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Durum wheat production (2012)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_2017",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Durum wheat production (2017)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_2022",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Durum wheat production (2022)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_nodurum_1997",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Spring wheat production (1997)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_nodurum_2002",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Spring wheat production (2002)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_nodurum_2007",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Spring wheat production (2007)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_nodurum_2012",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Spring wheat production (2012)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_nodurum_2017",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Spring wheat production (2017)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Spring_wheat_prod_nodurum_2022",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Spring wheat production (2022)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "STATEFP",
+                        "isEditable": true,
+                        "label": "STATEFP",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Wheat_prod_1997",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Production - 1997",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Wheat_prod_2002",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Wheat Production in 2002",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Wheat_prod_2007",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Wheat Production in 2007",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Wheat_prod_2012",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Wheat Production in 2012",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Wheat_prod_2017",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Wheat Production in 2017",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Wheat_prod_2022",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Production - 2022",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Winter_wheat_prod_2002",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Winter wheat production (2002)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Winter_wheat_prod_2007",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Winter wheat production (2007)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Winter_wheat_prod_2012",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Winter wheat production (2012)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Winter_wheat_prod_2017",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Winter wheat production (2017)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "Winter_wheat_prod_2022",
+                        "format": {
+                            "digitSeparator": true,
+                            "places": 0
+                        },
+                        "isEditable": true,
+                        "label": "Winter wheat production (2022)",
+                        "visible": true
+                    },
+                    {
+                        "fieldName": "StateName",
+                        "isEditable": true,
+                        "label": "State name",
+                        "visible": false
+                    }
+                ],
+                "title": "{NAMELSAD}"
+            }
+        }
+    ],
+    "tables": []
+}
