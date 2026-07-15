@@ -1,25 +1,42 @@
+@import "https://js.arcgis.com/calcite-components/3.0.3/calcite.css";
 @import "https://js.arcgis.com/4.32/@arcgis/core/assets/esri/themes/light/main.css";
+@import "https://js.arcgis.com/map-components/4.32/arcgis-map-components.css";
 
 html,
 body {
-  background-color: var(--calcite-color-foreground-2);
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 calcite-shell {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--calcite-color-background);
+}
+
+calcite-menu-item {
+  --calcite-menu-background-color: var(--calcite-color-background);
+}
+
+calcite-navigation-logo {
+  --calcite-navigation-logo-heading-color: var(--calcite-color-brand);
 }
 
 .main-container {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 56px);
+  height: 100vh;
+  /* Ensure the main container takes up the full viewport height */
 }
 
 .map-container {
   flex: 0 0 40%;
+  /* Take 40% of the space */
   display: flex;
+  flex-direction: column;
+  overflow: auto;
   margin: 0.5rem;
   outline: grey solid 1px;
 }
@@ -35,9 +52,10 @@ calcite-shell {
 
 .map,
 .table,
+.states-list,
 .chart {
   flex: 1;
-  min-height: 0;
+  /* Ensure the elements take up the available space */
 }
 
 .states-list {
@@ -45,6 +63,14 @@ calcite-shell {
   max-width: 200px;
 }
 
+.custom-heading {
+  font-size: var(--calcite-font-size-1);
+  padding-inline-start: 0px;
+  font-weight: var(--calcite-font-weight-medium);
+}
+
+.esri-widget--button,
+:focus,
 .app-theme {
   --calcite-color-focus: #b34a00;
   --calcite-color-brand: #b34b00;
@@ -55,14 +81,4 @@ calcite-shell {
   --calcite-color-foreground-2: #fae9c8;
   --calcite-color-foreground-3: #fce5b6;
   --calcite-color-foreground-current: #ebd09d;
-}
-
-@media (max-width: 800px) {
-  .main-container {
-    flex-direction: column;
-  }
-
-  .map-container {
-    flex: 0 0 50%;
-  }
 }
