@@ -1,0 +1,12 @@
+{
+  "html.customData": [
+    "UC-2026/programming-patterns-and-best-practices/node_modules/@arcgis/map-components/dist/docs/vscode.html-custom-data.json",
+    "UC-2026/programming-patterns-and-best-practices/node_modules/@arcgis/common-components/dist/docs/vscode.html-custom-data.json",
+    "UC-2026/programming-patterns-and-best-practices/node_modules/@arcgis/charts-components/dist/docs/vscode.html-custom-data.json",
+    "UC-2026/programming-patterns-and-best-practices/node_modules/@esri/calcite-components/dist/docs/vscode.html-custom-data.json"
+  ],
+  "css.customData": [
+    "UC-2026/programming-patterns-and-best-practices/node_modules/@arcgis/map-components/dist/docs/vscode.css-custom-data.json",
+    "UC-2026/programming-patterns-and-best-practices/node_modules/@esri/calcite-components/dist/docs/vscode.css-custom-data.json"
+  ]
+}
