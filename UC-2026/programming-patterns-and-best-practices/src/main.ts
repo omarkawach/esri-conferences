@@ -26,25 +26,19 @@ import "@esri/calcite-components/components/calcite-navigation-logo";
 
 // Import modules and types from the SDK's core API
 import type WebMap from "@arcgis/core/WebMap.js";
+import Collection from "@arcgis/core/core/Collection.js";
 import type FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 import type GroupLayer from "@arcgis/core/layers/GroupLayer.js";
+import type { GoToTarget2D } from "@arcgis/core/views/types.js";
 
-const mapElement = document.querySelector("arcgis-map") as unknown as HTMLElement & {
-  map: WebMap;
-  goTo: (target: unknown) => Promise<void>;
-};
-const tableElement = document.querySelector("#featureTable") as HTMLElement & {
-  layer: FeatureLayer;
-  objectIds: unknown[] | null;
-  filterGeometry: unknown;
-  actionColumnConfig: unknown;
-};
-const chartElement = document.querySelector("#chart") as HTMLElement & {
-  layer: FeatureLayer;
-  model: unknown;
-  runtimeDataFilters: unknown;
-};
-const stateListElement = document.querySelector("#stateList") as HTMLElement;
+const mapElement = document.querySelector<HTMLArcgisMapElement>("arcgis-map");
+const tableElement = document.querySelector<HTMLArcgisFeatureTableElement>("#featureTable");
+const chartElement = document.querySelector<HTMLArcgisChartElement>("#chart");
+const stateListElement = document.querySelector<HTMLCalciteListElement>("#stateList");
+
+if (!mapElement || !tableElement || !chartElement || !stateListElement) {
+  throw new Error("The wheat comparison application could not initialize its components.");
+}
 
 type StateListItem = { label: string; production?: number; value?: string };
 
@@ -61,10 +55,12 @@ const createStateList = (items: StateListItem[], maxProduction: number) => {
 
 let layer: FeatureLayer;
 let states: FeatureLayer;
-let initialViewpoint: unknown;
+let initialViewpoint: GoToTarget2D | undefined;
 
 const resetFocus = () => {
-  void mapElement.goTo(initialViewpoint);
+  if (initialViewpoint) {
+    void mapElement.goTo(initialViewpoint);
+  }
   layer.featureEffect = null;
   states.featureEffect = {
     filter: { where: "1=1" },
@@ -72,8 +68,8 @@ const resetFocus = () => {
     includedEffect: "drop-shadow(0, 0, 24px, darkgray)",
   };
   tableElement.filterGeometry = null;
-  tableElement.objectIds = null;
-  chartElement.runtimeDataFilters = null;
+  tableElement.objectIds = new Collection();
+  chartElement.runtimeDataFilters = undefined;
 };
 
 const selectState = async (stateName?: string) => {
@@ -102,20 +98,20 @@ const selectState = async (stateName?: string) => {
     includedEffect: "drop-shadow(0, 0, 24px, darkgray)",
   };
   tableElement.filterGeometry = extent;
-  tableElement.objectIds = objectIds;
+  tableElement.objectIds = new Collection(objectIds);
   chartElement.runtimeDataFilters = {
     where: `${layer.objectIdField} IN (${objectIds.join(",")})`,
   };
 };
 
 mapElement.addEventListener("arcgisViewReadyChange", async () => {
-  const map = mapElement.map;
-  initialViewpoint = map.initialViewProperties.viewpoint;
+  const map = mapElement.map as WebMap;
+  initialViewpoint = map.initialViewProperties.viewpoint ?? undefined;
   layer = map.allLayers.find(
     (candidate): candidate is FeatureLayer => candidate.title === "Change in harvested wheat from 1997 to 2022",
   ) as FeatureLayer;
   chartElement.layer = layer;
-  chartElement.model = layer.charts?.[4];
+  chartElement.model = layer.charts?.[4] as NonNullable<typeof chartElement.model>;
 
   const boundaries = map.layers.at(0) as GroupLayer;
   states = boundaries?.layers.at(0) as FeatureLayer;
@@ -141,15 +137,15 @@ mapElement.addEventListener("arcgisViewReadyChange", async () => {
   tableElement.actionColumnConfig = {
     label: "Go to feature",
     icon: "zoom-to-object",
-    callback: (event: { feature: unknown }) => void mapElement.goTo(event.feature),
+    callback: (event) => void mapElement.goTo(event.feature),
   };
 });
 
 stateListElement.addEventListener("calciteListItemSelect", (event) => {
-  const item = event.target as HTMLElement & { value?: string };
+  const item = event.target as HTMLCalciteListItemElement;
   void selectState(item.value);
 });
 
 mapElement.addEventListener("arcgisViewChange", (event) => {
-  tableElement.filterGeometry = (event.target as HTMLElement & { extent: unknown }).extent;
+  tableElement.filterGeometry = (event.target as HTMLArcgisMapElement).extent;
 });
