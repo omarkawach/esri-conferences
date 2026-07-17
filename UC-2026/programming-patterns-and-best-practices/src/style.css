@@ -1,5 +1,3 @@
-@import "https://js.arcgis.com/4.32/@arcgis/core/assets/esri/themes/light/main.css";
-
 html,
 body {
   background-color: var(--calcite-color-foreground-2);
@@ -31,6 +29,7 @@ calcite-shell {
   overflow: auto;
   gap: 0.1rem;
   margin: 0.5rem;
+  background-color: var(--calcite-color-foreground-1);
 }
 
 .map,
@@ -55,6 +54,10 @@ calcite-shell {
   --calcite-color-foreground-2: #fae9c8;
   --calcite-color-foreground-3: #fce5b6;
   --calcite-color-foreground-current: #ebd09d;
+  --calcite-color-surface-1: #fffaed;
+  --calcite-color-surface-2: #faf3e3;
+  --arcgis-table-row-background-color: #fffaed;
+  --arcgis-table-row-alt-background-color: #fffaed;
 }
 
 @media (max-width: 800px) {
